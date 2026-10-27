@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>menuve</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>menuve</h1>
+      <button id="settingsBtn" class="icon-btn" type="button" aria-label="Configurações">⚙</button>
+    </header>
+
+    <section class="stage">
+      <button id="micBtn" class="orb" data-state="off" type="button" aria-label="Ativar ou desativar escuta manualmente">
+        <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="9" y="3" width="6" height="12" rx="3"></rect>
+          <path d="M5 11a7 7 0 0 0 14 0"></path>
+          <path d="M12 18v3"></path>
+        </svg>
+      </button>
+      <p id="statusText" class="status" aria-live="polite">Inativo</p>
+      <div id="timeoutWrap" class="timeout" aria-hidden="true"><span></span></div>
+      <p id="liveText" class="live"></p>
+    </section>
+
+    <label class="switch">
+      <input type="checkbox" id="keywordToggle">
+      <span class="slider"></span>
+      <span>Escutar a palavra “Menuve”</span>
+    </label>
+
+    <section id="log" class="log" aria-live="polite"></section>
+
+    <form id="textForm" class="text-form" autocomplete="off">
+      <input id="textInput" type="text" placeholder="Ou digite um comando…">
+      <button type="submit">Enviar</button>
+    </form>
+
+    <p id="supportMsg" class="support" hidden>
+      Seu navegador não suporta reconhecimento de voz. Use o Google Chrome ou o Edge — você ainda pode digitar comandos.
+    </p>
+  </main>
+
+  <dialog id="settingsDialog">
+    <form id="settingsForm" method="dialog">
+      <h2>Configurações</h2>
+      <label>URL do Web App (Apps Script)
+        <input id="cfgUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec">
+      </label>
+      <label>Token de acesso (APP_TOKEN)
+        <input id="cfgToken" type="password" placeholder="o mesmo definido nas Propriedades do script" autocomplete="off">
+      </label>
+      <p class="hint">Ficam salvos apenas neste navegador (localStorage).</p>
+      <div class="actions">
+        <button type="button" id="cfgCancel" class="ghost">Cancelar</button>
+        <button type="submit" id="cfgSave">Salvar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
